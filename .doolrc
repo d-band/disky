@@ -1,0 +1,3 @@
+{
+  babelPlugins: ['transform-runtime']
+}

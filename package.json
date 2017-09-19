@@ -1,0 +1,71 @@
+{
+  "name": "disky",
+  "version": "1.0.0",
+  "description": "NTFS writable for macOS",
+  "main": "dist/main.js",
+  "scripts": {
+    "lint": "eslint --ext .js src",
+    "dev": "dool server --config build/index.js",
+    "start": "NODE_ENV=dev electron -r babel-register ./src/main.js",
+    "build-main": "dool build --no-compress --config build/main.js",
+    "build-index": "dool build --config build/index.js",
+    "prebuild": "node build/clean.js",
+    "build": "npm run build-index && npm run build-main",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.dband.disky",
+    "productName": "Disky",
+    "directories": {
+      "output": "app"
+    },
+    "files": [
+      "dist/**/*",
+      "app.html"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "src/icons/app.icns"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-band/disky.git"
+  },
+  "keywords": [
+    "NTFS",
+    "macOS"
+  ],
+  "author": "d-band",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d-band/disky/issues"
+  },
+  "homepage": "https://github.com/d-band/disky#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "electron": "^1.7.6",
+    "electron-builder": "^19.27.7",
+    "eslint": "^4.7.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "ls-usb": "0.1.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "sudo-prompt": "^7.1.1",
+    "yax": "^0.3.1"
+  }
+}
