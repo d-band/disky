@@ -24,7 +24,7 @@ function List({ list, dispatch }) {
           <dl key={media.udid} className="list">
             <dt>{media.name}</dt>
             {media.volumes.map((v) => {
-              const percent = (v.free_bytes || 0) / v.size_bytes;
+              const percent = 1 - ((v.free_bytes || 0) / v.size_bytes);
               const width = `${Math.floor(percent * 100)}%`;
               const meta = v.free ? `${v.free} free of ${v.size}` : v.size;
               return (
