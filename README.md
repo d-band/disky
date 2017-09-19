@@ -3,10 +3,6 @@ Disky
 
 > Make NTFS writable on macOS
 
----
-
-## Screenshots
-
 ![Disky](images/image.png)
 
 ## Development
