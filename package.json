@@ -11,8 +11,8 @@
     "build-index": "dool build --config build/index.js",
     "prebuild": "node build/clean.js",
     "build": "npm run build-index && npm run build-main",
-    "pack": "npm run build && electron-builder --dir",
-    "dist": "npm run build && electron-builder"
+    "pack": "npm run build && rimraf app && electron-builder --dir",
+    "dist": "npm run build && rimraf app && electron-builder"
   },
   "build": {
     "appId": "com.dband.disky",
